@@ -1,0 +1,36 @@
+:root{
+  --color-bg:#F8F7F3;
+  --color-surface:#EEECE6;
+  --color-text:#171717;
+  --color-muted:#77746E;
+  --color-line:#DEDCD5;
+  --color-white:#FFFFFF;
+  --color-hover:#e7e4dc;
+  --font-body:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;
+  --text-h1:64px;
+  --text-h2:40px;
+  --text-h3:26px;
+  --text-body:16px;
+  --text-small:14px;
+  --text-meta:12px;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:20px;
+  --space-6:24px;
+  --space-8:32px;
+  --space-10:40px;
+  --space-12:48px;
+  --space-16:64px;
+  --space-24:96px;
+  --radius-card:8px;
+  --radius-image:6px;
+  --radius-button:6px;
+  --radius-tag:4px;
+  --content-width:1160px;
+  --header-height:72px;
+  --transition:200ms ease;
+  /* 이미지 등록 후 none을 url('../images/hero/hero.jpg')로 교체합니다. */
+  --hero-image:none;
+}

@@ -1,0 +1,169 @@
+.container{
+  width:calc(100% - 64px);
+  max-width:var(--content-width);
+  margin-inline:auto}
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:var(--color-bg);
+    border-bottom:1px solid var(--color-line)}
+    .header-inner{
+      min-height:var(--header-height);
+      display:flex;
+      align-items:center;
+      justify-content:space-between}
+      .site-footer{
+        border-top:1px solid var(--color-line)}
+        .footer-inner{
+          min-height:108px;
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          gap:24px;
+          font-size:var(--text-small)}
+          .hero{
+            height:70vh;
+            min-height:480px;
+            background-color:var(--color-surface);
+            background-image:var(--hero-image);
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            flex-direction:column;
+            justify-content:space-between}
+            .hero-content{
+              padding-top:64px}
+              .hero h1{
+                margin-top:24px;
+                max-width:800px}
+                .hero-description{
+                  margin-top:24px;
+                  font-size:18px}
+                  .hero-caption{
+                    display:flex;
+                    justify-content:space-between;
+                    gap:24px;
+                    padding-bottom:28px;
+                    font-size:11px;
+                    letter-spacing:.1em}
+                    .section{
+                      padding-block:var(--space-24)}
+                      .section+.section{
+                        border-top:1px solid var(--color-line)}
+                        .section-heading{
+                          display:flex;
+                          justify-content:space-between;
+                          align-items:end;
+                          gap:32px;
+                          margin-bottom:40px}
+                          .section-heading h2{
+                            margin-top:12px}
+                            .section-note{
+                              color:var(--color-muted);
+                              font-size:var(--text-small);
+                              padding-bottom:4px}
+                              .project-grid{
+                                display:grid;
+                                grid-template-columns:repeat(2,minmax(0,1fr));
+                                gap:32px}
+                                .section-action{
+                                  text-align:center;
+                                  margin-top:48px}
+                                  .contact{
+                                    display:grid;
+                                    grid-template-columns:1fr 1fr;
+                                    gap:64px}
+                                    .contact h2{
+                                      margin-top:16px}
+                                      .contact-intro>p:last-child{
+                                        margin-top:20px;
+                                        color:var(--color-muted)}
+                                        .page-main{
+                                          padding-block:80px 96px;
+                                          min-height:calc(100vh - 180px)}
+                                          .page-heading{
+                                            margin-bottom:64px}
+                                            .page-heading h1{
+                                              margin:20px 0}
+                                              .page-heading>p:last-child{
+                                                color:var(--color-muted)}
+                                                .results-heading{
+                                                  display:flex;
+                                                  justify-content:space-between;
+                                                  align-items:center;
+                                                  gap:16px;
+                                                  margin:40px 0 24px;
+                                                  font-size:14px;
+                                                  color:var(--color-muted)}
+                                                  .detail-main{
+                                                    padding-block:40px 96px;
+                                                    min-height:calc(100vh - 180px)}
+                                                    .detail-heading{
+                                                      padding:48px 0 40px;
+                                                      max-width:900px}
+                                                      .detail-heading h1{
+                                                        margin:20px 0}
+                                                        .detail-heading>p{
+                                                          color:var(--color-muted);
+                                                          font-size:18px;
+                                                          margin-bottom:24px}
+                                                          .detail-cover{
+                                                            aspect-ratio:4/3;
+                                                            max-height:640px;
+                                                            object-fit:cover;
+                                                            border-radius:var(--radius-image);
+                                                            background:var(--color-surface)}
+                                                            .detail-info{
+                                                              display:grid;
+                                                              grid-template-columns:repeat(4,minmax(0,1fr));
+                                                              gap:24px;
+                                                              margin:0;
+                                                              padding:32px 0;
+                                                              border-bottom:1px solid var(--color-line)}
+                                                              .detail-info dt{
+                                                                font-size:12px;
+                                                                color:var(--color-muted);
+                                                                margin-bottom:8px}
+                                                                .detail-info dd{
+                                                                  margin:0}
+                                                                  .detail-body{
+                                                                    max-width:760px;
+                                                                    margin:64px auto}
+                                                                    .detail-section{
+                                                                      margin-bottom:48px}
+                                                                      .detail-section h2{
+                                                                        font-size:26px;
+                                                                        margin-bottom:20px}
+                                                                        .detail-section p{
+                                                                          white-space:pre-line}
+                                                                          .detail-section img{
+                                                                            border-radius:6px;
+                                                                            margin-block:24px}
+                                                                            .detail-section table{
+                                                                              border-collapse:collapse;
+                                                                              width:100%;
+                                                                              font-size:14px}
+                                                                              .detail-section th,.detail-section td{
+                                                                                border:1px solid var(--color-line);
+                                                                                padding:12px;
+                                                                                text-align:left}
+                                                                                .table-scroll{
+                                                                                  overflow:auto}
+                                                                                  .detail-section a{
+                                                                                    text-decoration:underline;
+                                                                                    text-underline-offset:4px}
+                                                                                    .project-pagination{
+                                                                                      border-block:1px solid var(--color-line);
+                                                                                      padding:24px 0;
+                                                                                      display:grid;
+                                                                                      grid-template-columns:1fr 1fr;
+                                                                                      gap:24px}
+                                                                                      .project-pagination a{
+                                                                                        padding:8px 0}
+                                                                                        .project-pagination a:last-child{
+                                                                                          text-align:right}
+                                                                                          .project-pagination small{
+                                                                                            display:block;
+                                                                                            color:var(--color-muted);
+                                                                                            margin-bottom:8px}

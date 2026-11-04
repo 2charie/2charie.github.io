@@ -1,0 +1,223 @@
+.logo{
+  font-size:24px;
+  font-weight:700;
+  letter-spacing:-1px}
+  .logo span{
+    font-weight:400}
+    .site-nav{
+      display:flex;
+      gap:36px;
+      align-items:center}
+      .site-nav a{
+        font-size:14px;
+        padding:12px 0;
+        position:relative}
+        .site-nav a[aria-current=page]:after{
+          content:'';
+          height:2px;
+          background:var(--color-text);
+          position:absolute;
+          left:0;
+          right:0;
+          bottom:5px}
+          .site-nav a:hover{
+            color:var(--color-muted)}
+            .menu-toggle{
+              display:none;
+              border:1px solid var(--color-line);
+              border-radius:6px;
+              background:none;
+              width:44px;
+              height:44px;
+              align-items:center;
+              justify-content:center;
+              flex-direction:column;
+              gap:6px}
+              .menu-toggle span{
+                width:18px;
+                height:1px;
+                background:currentColor;
+                transition:transform var(--transition)}
+                .menu-toggle[aria-expanded=true] span:first-child{
+                  transform:translateY(3.5px) rotate(45deg)}
+                  .menu-toggle[aria-expanded=true] span:last-child{
+                    transform:translateY(-3.5px) rotate(-45deg)}
+                    .button{
+                      min-height:48px;
+                      display:inline-flex;
+                      justify-content:center;
+                      align-items:center;
+                      gap:36px;
+                      padding:12px 24px;
+                      border:1px solid var(--color-text);
+                      border-radius:var(--radius-button);
+                      background:var(--color-text);
+                      color:var(--color-white);
+                      font-size:14px;
+                      font-weight:500;
+                      transition:background var(--transition),color var(--transition)}
+                      .button:hover{
+                        background:#333}
+                        .button-secondary{
+                          background:transparent;
+                          color:var(--color-text);
+                          border-color:var(--color-line)}
+                          .button-secondary:hover{
+                            background:var(--color-surface)}
+                            .project-card{
+                              background:var(--color-surface);
+                              padding:24px;
+                              border-radius:var(--radius-card);
+                              transition:background var(--transition);
+                              min-width:0}
+                              .project-card:hover{
+                                background:var(--color-hover)}
+                                .project-card-link{
+                                  display:block}
+                                  .project-image-wrap{
+                                    overflow:hidden;
+                                    border-radius:var(--radius-image);
+                                    background:var(--color-line);
+                                    aspect-ratio:4/3;
+                                    position:relative}
+                                    .project-image-wrap img{
+                                      height:100%;
+                                      object-fit:cover;
+                                      transition:transform 250ms ease}
+                                      .project-card:hover img{
+                                        transform:scale(1.025)}
+                                        .placeholder-label{
+                                          position:absolute;
+                                          inset:0;
+                                          display:flex;
+                                          align-items:center;
+                                          justify-content:center;
+                                          font-size:12px;
+                                          letter-spacing:.16em;
+                                          color:var(--color-muted);
+                                          pointer-events:none}
+                                          .project-card-meta{
+                                            display:flex;
+                                            align-items:center;
+                                            justify-content:space-between;
+                                            margin-top:24px;
+                                            font-size:12px;
+                                            color:var(--color-muted)}
+                                            .project-card h3{
+                                              margin-top:12px;
+                                              display:flex;
+                                              align-items:center;
+                                              justify-content:space-between;
+                                              gap:16px}
+                                              .project-card h3 span{
+                                                font-size:24px;
+                                                font-weight:400}
+                                                .project-card p{
+                                                  font-size:14px;
+                                                  margin:12px 0 20px;
+                                                  color:var(--color-muted)}
+                                                  .tags{
+                                                    display:flex;
+                                                    flex-wrap:wrap;
+                                                    gap:8px}
+                                                    .tag{
+                                                      font-size:12px;
+                                                      font-weight:500;
+                                                      line-height:1.6;
+                                                      padding:4px 8px;
+                                                      border:1px solid #cecbc3;
+                                                      border-radius:var(--radius-tag)}
+                                                      .expertise-list{
+                                                        list-style:none;
+                                                        padding:0;
+                                                        margin:0;
+                                                        border-top:1px solid var(--color-line)}
+                                                        .expertise-list li{
+                                                          display:grid;
+                                                          grid-template-columns:56px 1fr 1fr;
+                                                          gap:24px;
+                                                          align-items:center;
+                                                          padding:32px 0;
+                                                          border-bottom:1px solid var(--color-line)}
+                                                          .list-number{
+                                                            font-size:12px;
+                                                            color:var(--color-muted)}
+                                                            .expertise-list p{
+                                                              font-size:14px;
+                                                              color:var(--color-muted)}
+                                                              .contact-row{
+                                                                min-height:72px;
+                                                                border-bottom:1px solid var(--color-line);
+                                                                display:flex;
+                                                                justify-content:space-between;
+                                                                align-items:center;
+                                                                gap:24px}
+                                                                .contact-row:first-child{
+                                                                  border-top:1px solid var(--color-line)}
+                                                                  a.contact-row:hover{
+                                                                    background:var(--color-surface)}
+                                                                    .filter-heading{
+                                                                      display:flex;
+                                                                      align-items:center;
+                                                                      justify-content:space-between;
+                                                                      gap:16px;
+                                                                      margin-bottom:16px}
+                                                                      .motion-toggle{
+                                                                        border:0;
+                                                                        background:none;
+                                                                        min-height:44px;
+                                                                        padding:8px 0;
+                                                                        font-size:12px;
+                                                                        color:var(--color-muted)}
+                                                                        .filter-marquee{
+                                                                          overflow-x:auto;
+                                                                          scrollbar-width:thin;
+                                                                          scrollbar-color:var(--color-line) transparent;
+                                                                          padding:8px 0 16px;
+                                                                          overscroll-behavior-x:contain}
+                                                                          .filter-track{
+                                                                            display:flex;
+                                                                            width:max-content;
+                                                                            gap:8px}
+                                                                            .filter-group{
+                                                                              display:flex;
+                                                                              gap:8px;
+                                                                              padding-right:0}
+                                                                              .filter-button{
+                                                                                flex-shrink:0;
+                                                                                min-height:44px;
+                                                                                padding:10px 18px;
+                                                                                border:1px solid transparent;
+                                                                                border-radius:var(--radius-tag);
+                                                                                background:var(--color-surface);
+                                                                                font-size:14px;
+                                                                                white-space:nowrap;
+                                                                                transition:background var(--transition),color var(--transition);
+                                                                                touch-action:pan-x pan-y}
+                                                                                .filter-button:hover{
+                                                                                  border-color:var(--color-line)}
+                                                                                  .filter-button[aria-pressed=true],.filter-button.is-active{
+                                                                                    background:var(--color-text);
+                                                                                    color:var(--color-white)}
+                                                                                    .empty-state{
+                                                                                      padding:64px 20px;
+                                                                                      text-align:center;
+                                                                                      border:1px solid var(--color-line);
+                                                                                      border-radius:8px}
+                                                                                      .empty-state h2{
+                                                                                        font-size:26px}
+                                                                                        .empty-state p{
+                                                                                          margin:20px 0 32px;
+                                                                                          color:var(--color-muted)}
+                                                                                          .back-link{
+                                                                                            font-size:14px;
+                                                                                            display:inline-block;
+                                                                                            padding-block:8px}
+                                                                                            .footer-github{
+                                                                                              padding:12px 0}
+                                                                                              .footer-github:hover{
+                                                                                                text-decoration:underline}
+                                                                                                .detail-placeholder{
+                                                                                                  position:relative}
+                                                                                                  .detail-placeholder .placeholder-label{
+                                                                                                    font-size:14px}
