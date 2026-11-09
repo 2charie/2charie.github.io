@@ -1,4 +1,6 @@
 @media(max-width:1023px){
+  .skills-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .skills-grid > li, .skills-grid > li:nth-child(4), .skills-grid > li:nth-child(5) { grid-column:auto; }
   .project-grid{
     grid-template-columns:1fr}
     .section{
@@ -13,6 +15,11 @@
                 display:none}
               }
               @media(max-width:767px){
+                .skills-grid { grid-template-columns:minmax(0,1fr); }
+                .skill-card { padding:var(--space-6); }
+                .about-story { grid-template-columns:minmax(0,1fr); gap:var(--space-8); }
+                .section.about { padding-block:var(--space-12); }
+                .skills .section-note { max-width:none; }
                 :root{
                   --text-h1:40px;
                   --text-h2:30px;
@@ -77,12 +84,6 @@
                                                             margin-top:20px}
                                                             .section-action{
                                                               margin-top:32px}
-                                                              .expertise-list li{
-                                                                grid-template-columns:32px 1fr;
-                                                                gap:12px;
-                                                                padding:24px 0}
-                                                                .expertise-list p{
-                                                                  grid-column:2}
                                                                   .contact{
                                                                     grid-template-columns:1fr;
                                                                     gap:32px}

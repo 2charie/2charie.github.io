@@ -12,8 +12,7 @@
    const empty = document.querySelector('[data-empty]');
    if(empty) empty.hidden = list.length > 0;
  };
- render('전체');
- if(selectedOnly) return;
+ if(selectedOnly) {render('전체');return;}
  const marquee = document.querySelector('[data-marquee]');
  const track = document.querySelector('[data-filter-track]');
  const categories = ['전체', ...PORTFOLIO.categories];
@@ -23,10 +22,29 @@
  clone.setAttribute('aria-hidden','true');
  clone.querySelectorAll('button').forEach(button => {button.tabIndex = -1;button.removeAttribute('aria-pressed');button.classList.toggle('is-active',button.dataset.category === '전체');});
  track.append(clone);
- const choose = category => {
+ const categoryFromURL = () => {
+   const value = new URL(location.href).searchParams.get('tag');
+   return PORTFOLIO.categories.includes(value) ? value : '전체';
+ };
+ const choose = (category, updateURL = true) => {
+   if(!categories.includes(category)) category = '전체';
+   if(updateURL){
+     const next = new URL(location.href);
+     if(category === '전체') next.searchParams.delete('tag');
+     else next.searchParams.set('tag',category);
+     if(next.href !== location.href) history.pushState(null,'',next);
+   }
    track.querySelectorAll('button').forEach(button => {const active = button.dataset.category === category;button.classList.toggle('is-active',active);if(!button.closest('[aria-hidden]')) button.setAttribute('aria-pressed',String(active));});
    render(category);
  };
+ const restoreFromURL = () => {
+   const category = categoryFromURL();
+   choose(category,false);
+   const button = [...original.querySelectorAll('button')].find(item => item.dataset.category === category);
+   if(button) marquee.scrollLeft = Math.max(0,button.offsetLeft-original.offsetLeft-20);
+ };
+ restoreFromURL();
+ window.addEventListener('popstate',restoreFromURL);
  track.addEventListener('click', event => {const button = event.target.closest('[data-category]');if(button) choose(button.dataset.category);});
  document.querySelector('[data-reset]').addEventListener('click', () => {choose('전체');marquee.scrollLeft = 0;original.querySelector('button').focus();});
  let hovering = false, touching = false, manuallyPaused = false, interactionUntil = 0, previous = 0;

@@ -70,3 +70,43 @@ Chromium Headless Shell에서 `scripts/validate-detail.cjs`로 50개 사례를 �
 검증 자료: `output/playwright/detail-system-results.json`, `output/playwright/detail-system-project-00{1..4}-{1440,360}.png`. `DETAIL_TEST_URL`로 검증 서버 주소를 지정할 수 있습니다. 외부 CDN 대기를 차단해 시스템 폰트로 검사했으므로 Pretendard 다운로드 상태와 별도 Safari/Firefox/실제 모바일 하드웨어는 이번 검증에 포함하지 않았습니다.
 
 수정 파일: `assets/css/variables.css`, `layout.css`, `responsive.css`, `project-research.css`, `project-analytics.css`, `project-vision.css`, 신규 `project-detail.css`, `assets/js/project-detail.js`, `projects/detail.html`, `scripts/validate-detail.cjs`, `docs/design-guide.md`, 이 문서. 기존 작업 중 변경사항은 보존했습니다.
+
+## 2026-11-09 Home About·Skills와 Projects 태그 연결
+
+- About 세 문단의 textContent를 요청 원문과 정확히 비교해 통과했습니다. Home 섹션 순서도 Hero → Selected Projects → About → Skills → Contact와 일치합니다.
+- 1440/1280/834/390/360px에서 PC About 2열·모바일 1열, Skills PC 한 행·모바일 설명 아래 배치, 페이지 가로 넘침 없음, 호버 문구 전환 후 동일한 행 높이를 확인했습니다.
+- 다섯 Skills 링크의 URL 매핑을 확인하고 실제 키보드 Enter 및 터치 에뮬레이션 탭으로 각 태그에 이동했습니다. 링크 간 Tab 이동, 포커스 외곽선도 확인했습니다.
+- 각 태그의 선택 버튼, 프로젝트 id 목록과 건수를 원본 데이터에서 계산한 기대값과 대조해 일치했습니다. 새로고침, 전체 선택 시 URL tag 제거, 빈 결과의 초기화 버튼, 뒤로/앞으로 이동, 태그 누락·유효하지 않음·잘못된 인코딩도 통과했습니다.
+- Chromium Headless Shell, 시스템 폰트 기준입니다. JavaScript 페이지 오류 0건. 실제 모바일 기기와 Safari/Firefox는 검증하지 않았습니다.
+- 검증 스크립트: scripts/validate-home.cjs. 기존 검증과 같이 PLAYWRIGHT_MODULE/CHROMIUM_PATH 및 DETAIL_TEST_URL 환경 변수를 지원합니다.
+- 화면 검토: output/playwright/home-about-{1440,360}.png, home-skills-{1440,360}.png.
+- 프로젝트 데이터와 기존 태그는 수정하지 않았습니다.
+
+## 2026-11-09 Home 이미지형 About·카드형 Skills
+
+이 기록은 같은 날 앞선 텍스트형 About·리스트형 Skills를 대체하는 UI 검증입니다.
+
+- About: 요청한 세 라벨/제목 및 본문 원문 일치를 확인했습니다. 생성 이미지 3장은 1200×900 WebP로 프로젝트에 저장했습니다. 모든 화면에서 4:3을 유지하고, PC는 동일 너비 이미지 왼쪽/텍스트 오른쪽 및 세로 중앙 정렬, 모바일은 이미지 다음 텍스트 배치를 확인했습니다. 페이지 가로 넘침은 없었습니다.
+- Skills: Lucide 라이브러리의 뇌/화면/차트/칩/새싹 선형 SVG를 로컬 저장했습니다. 카드 크기·높이 동일, PC 3+2 및 아래 2개 중앙 정렬, 태블릿 2열, 모바일 1열 검증을 통과했습니다. 프로젝트 보기 문구는 기본 표시되며 호버 후 카드 높이 변화가 없습니다. 키보드 포커스 외곽선 및 강조 테두리·아이콘도 확인했습니다.
+- 반응형 화면: 1440/1280/834/390/360px. 화면 자료는 output/playwright/home-about-v2-{1440,360}.png와 home-skills-v2-{1440,360}.png입니다. 긴 섹션 캡처에서는 고정 헤더와 건너뛰기 링크를 캡처 중에만 숨겨 문서 중간에 끼어드는 현상을 방지했습니다.
+- 다섯 카드의 키보드 Enter와 터치 에뮬레이션 탭으로 각각 지정된 단일 태그에 이동했습니다. 선택 버튼·실제 프로젝트 id 목록·건수 일치, 새로고침, 전체 초기화, 뒤로/앞으로 복원을 통과했습니다. 기존 projects.js와 프로젝트 데이터는 이번 UI 변경에서 수정하지 않았습니다.
+- Chromium Headless Shell에서 scripts/validate-home.cjs 통과, JavaScript 페이지 오류 0건입니다. 외부 폰트 CDN은 차단하고 시스템 폰트로 확인했습니다. 실제 모바일 기기/Safari/Firefox 검증은 포함하지 않습니다.
+- 변경 파일: index.html, assets/css/layout.css·components.css·responsive.css, scripts/validate-home.cjs, README.md, docs/design-guide.md·validation.md·about-images.md. 추가 자산: assets/images/about/*.webp 및 assets/images/icons/lucide의 SVG 5개와 LICENSE/README.md.
+
+## 2026-11-09 About 축소·교차 배치 및 Skills inline SVG
+
+- 기존 About 라벨·제목·본문과 다섯 Skills 태그 링크는 유지했습니다. PC에서는 둘째 행만 이미지가 오른쪽, 모바일에서는 세 행 모두 이미지가 먼저 오는 것을 좌표 검사 및 실제 캡처로 확인했습니다.
+- PC 이미지는 최대 400×280px, 모바일은 최대 400px/원본 4:3이며 열 안에서 중앙 정렬됩니다. 본문 중앙 정렬, keep-all 줄바꿈, 행 사이 약 57px 여백, 섹션 패딩 64px/모바일 48px을 적용했습니다. 행 높이는 고정하지 않습니다.
+- 심리학과 스마트팜 이미지 파일은 그대로 유지하고 업무 이미지만 about-web-planning-collage.webp로 교체했습니다. 도식·화면설계서·차트 중심의 회색/파란색 콜라주로 심리학 책상 사진과 구분됩니다. 원본은 1200×900 WebP입니다. 프롬프트는 docs/about-images.md에 기록했습니다.
+- Skills는 CSS mask를 제거하고 실제 inline SVG 5개를 표시합니다. 모두 선 두께 1.5/둥근 끝처리, 아이콘 52px/배경 영역 72px입니다. SVG 경로 5개가 서로 다르고 브라우저에서 52×52px로 표시되는 것을 검사하고 화면으로 확인했습니다. 뇌는 Lucide 경로, 나머지는 요청한 복합 형태로 직접 구성했습니다. 기존 Lucide 라이선스는 보존했습니다.
+- 1440/1280/834/390/360px에서 교차 배치·이미지 크기·본문 원문·카드 동일 크기·3+2 중앙/2열/1열 배치를 통과했습니다. 호버 및 키보드 포커스 시 translateY(-4px), 모션 감소 시 transform:none을 확인했습니다. 링크 키보드/터치 이동, 단일 태그·목록·건수, 새로고침·초기화·뒤로/앞으로도 통과했습니다. JavaScript 페이지 오류와 페이지 가로 넘침은 없었습니다.
+- 화면 자료: output/playwright/home-about-v3-{1440,360}.png, home-skills-v3-{1440,360}.png. Chromium Headless Shell/시스템 폰트 기준이며 실제 모바일 기기와 Safari/Firefox는 포함하지 않았습니다.
+- 수정 파일: index.html, assets/css/layout.css·components.css·responsive.css, scripts/validate-home.cjs, docs/design-guide.md·validation.md·about-images.md. 신규 이미지: assets/images/about/about-web-planning-collage.webp. 이전 작업 중 변경사항은 보존했습니다.
+
+## 2026-11-09 Skills 가로 헤더·축소 카드
+
+Skills 영역만 개선했습니다. 카드 최소 높이 200px/패딩 24px/간격 24px, PC 3+2 중앙 배치·태블릿 2열·모바일 1열을 유지합니다. Lucide 원본 경로의 단순 뇌·화면·막대차트·칩·새싹 SVG를 30px/선 두께 1.5로 통일하고 회색 아이콘 배경을 제거했습니다. 아이콘과 22px 제목은 12px 간격으로 중앙 정렬합니다. 설명 14px은 상단에서 16px 아래, 프로젝트 보기와 화살표는 카드 하단 좌우에 고정합니다. 밝은 흰색 배경과 얇은 테두리를 사용하며 호버·포커스에는 색만 변경합니다.
+
+scripts/validate-home.cjs로 1440/1280/834/390/360px에서 PC 높이 190–210px, 전체 동일 크기, 아이콘·제목 중앙 및 간격, SVG 5개 표시, 하단 정렬, 포커스, 태그별 프로젝트/건수, 새로고침·히스토리, 키보드·터치 이동 검증을 통과했습니다. Chromium Headless Shell/시스템 폰트 기준이고 페이지 오류·가로 넘침은 없습니다. 실제 화면 캡처 home-skills-v4-1440.png와 home-skills-v4-360.png를 확인했습니다. About·프로젝트 데이터·필터 코드는 이번 변경에서 수정하지 않았습니다.
+
+변경 파일: index.html의 Skills 마크업, assets/css/components.css의 Skills 규칙, scripts/validate-home.cjs, docs/design-guide.md·validation.md, assets/images/icons/lucide/README.md. 추가 파일: assets/images/icons/lucide/chart-column.svg.

@@ -43,10 +43,10 @@ node scripts/serve.mjs
 브라우저에서 http://127.0.0.1:4173 을 엽니다. 종료는 Ctrl+C입니다. 다른 포트는 node scripts/serve.mjs 8080 으로 지정합니다. Python이 설치되어 있다면 python -m http.server 4173 --bind 127.0.0.1 도 사용할 수 있습니다.
 
 ## 주요 페이지
-- Home: /index.html — Hero, 대표 프로젝트, About 위치, 역량 목록, Contact
+- Home: /index.html — Hero, 대표 프로젝트, About, Skills, Contact
 - Projects: /projects/index.html — 전체 프로젝트와 16개 분류 단일 선택
 - Detail: /projects/detail.html?id=project-001 — 데이터 기반 공통 상세 템플릿
-- About Me는 콘텐츠가 준비될 때까지 hidden 처리되어 불필요한 공백을 만들지 않습니다.
+- About은 사용자 제공 소개 세 문단을 표시합니다. Skills 다섯 분야는 기존 단일 태그의 Projects 목록으로 연결됩니다.
 
 ## 프로젝트 등록 및 수정
 assets/js/projects-data.js의 PORTFOLIO.projects 배열에 객체를 추가합니다. 기존 임시 객체를 복사하면 모든 필드를 확인할 수 있습니다.
@@ -81,7 +81,7 @@ process: [
 2. 현재 Hero 이미지는 assets/images/hero/hero-main.png입니다. 교체하려면 assets/css/variables.css의 --hero-image 경로를 변경합니다.
 3. index.html의 #hero-title과 .hero-description을 수정합니다. 이미지 적용 후 글자 대비를 확인하고 필요하면 오버레이를 추가합니다.
 4. assets/js/projects-data.js의 email을 실제 주소로 채우면 Email 행이 mailto 링크로 바뀝니다. 빈 상태에서는 주소 준비 중으로 표시합니다.
-5. 역량·도구는 index.html의 .expertise-list를 수정합니다. About은 #about의 hidden을 제거하고 실제 제목과 본문을 추가합니다.
+5. Skills는 index.html의 .skills-grid를, 소개는 #about의 .about-story 세 구간을 수정합니다. About 이미지 경로·생성 기록은 docs/about-images.md에 있습니다. Skills 링크의 tag는 기존 분류 하나를 encodeURIComponent로 인코딩합니다.
 
 ## 디자인과 검증
 디자인 기준: docs/design-guide.md. 로컬 검증 기록: docs/validation.md.
