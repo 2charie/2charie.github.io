@@ -338,7 +338,233 @@ window.PORTFOLIO = {
         }
       ]
     },
-    {id:'project-002',title:'Project 02',summary:'프로젝트 소개를 준비하고 있습니다.',categories:['서비스 기획','UX/UI 설계','서비스 개선'],image:'assets/images/projects/placeholder-02.svg',imageAlt:'단색 임시 프로젝트 이미지',placeholder:true,featured:true,period:'',type:'',role:'',tools:[],overview:'실제 프로젝트 내용으로 교체할 임시 페이지입니다.',problem:'',process:[],results:'',reflection:''},
+    {
+      "id": "project-002",
+      "title": "공공 계약 데이터를 어떻게 관리할 것인가?",
+      "subtitle": "수의계약 데이터 통합과 위험신호 모니터링 기획",
+      "summary": "기업 중심의 정보구조와 집계 기준, 위험신호의 근거를 연결한 공공 웹 서비스 기획.",
+      "categories": [
+        "서비스 기획",
+        "UX/UI 설계",
+        "서비스 개선"
+      ],
+      "image": "assets/images/projects/contract-monitoring-cover.svg",
+      "imageAlt": "흩어진 계약 문서가 중앙의 통합 영역과 연결되고 검토 표시가 겹쳐진 추상 도형.",
+      "placeholder": false,
+      "featured": true,
+      "status": "진행 중",
+      "kind": "planning",
+      "period": "",
+      "type": "공공 웹 서비스 기획 / 데이터 기반 모니터링 시스템",
+      "role": "서비스·데이터 기획, 정보구조·화면 설계, 모니터링 정책, HTML 프로토타입·검수",
+      "tools": [],
+      "sections": [
+        {
+          "title": "Overview — 프로젝트 개요",
+          "content": [
+            "여러 부서와 기간에 흩어진 수의계약 데이터를 기업 단위로 모아 누적 현황을 확인하는 시스템을 기획했습니다. 계약 건수·금액, 연관기업 정보와 위험신호의 근거를 연결해 담당자가 점검할 수 있는 흐름을 설계했습니다.",
+            {
+              "type": "note",
+              "text": "이상징후는 추가 점검을 위한 지표이며, 위법·부정행위 확정을 뜻하지 않습니다."
+            }
+          ]
+        },
+        {
+          "title": "Problem Definition — 해결할 업무 문제",
+          "content": [
+            {
+              "type": "table",
+              "compact": true,
+              "caption": "업무 문제에서 필요한 기능으로",
+              "headers": [
+                "업무의 어려움",
+                "기획 방향"
+              ],
+              "rows": [
+                [
+                  "정보 분산",
+                  "부서·기간에 분산된 이력을 기업 단위로 통합"
+                ],
+                [
+                  "누적 규모",
+                  "계약 건수·금액과 관리 기준을 함께 확인"
+                ],
+                [
+                  "계약 집중",
+                  "기업·부서·기간에 따른 계약 분포와 점검 항목 연결"
+                ],
+                [
+                  "기업 연관성",
+                  "기업 식별정보를 기준으로 연관 정보 확인 지원"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Planning Process — 서비스 기획 과정",
+          "content": [
+            {
+              "type": "planningSteps",
+              "items": [
+                {
+                  "title": "업무·요구사항 분석",
+                  "text": "계약 업무와 데이터 구조를 파악하고, 관리 대상·업무 기준·사용자별 확인 정보에서 필요한 기능을 도출했습니다."
+                },
+                {
+                  "title": "데이터·집계 기준 설계",
+                  "text": "기업별 건수와 금액, 조회 기간·기준일, 전체·기관별 집계 범위를 정리했습니다. 기업 식별정보의 정합성과 집계 제외 항목의 표시 방식도 검토했습니다."
+                },
+                {
+                  "title": "모니터링 기능 기획",
+                  "text": "누적 규모, 반복·집중 계약, 공통 정보 기반 연관성을 점검 항목으로 구성하고 위험신호의 단계와 근거를 표현하는 방식을 기획했습니다."
+                },
+                {
+                  "title": "정보구조·화면 설계",
+                  "text": "전체 현황, 기업별 상세, 근거 계약의 정보 위계를 정의하고 대시보드와 관리 기준 안내·설정 인터페이스를 구성했습니다."
+                },
+                {
+                  "title": "HTML 프로토타이핑·검수",
+                  "text": "조회 조건과 화면 이동, 집계 기준과 표시값의 일치를 검토하고 고객·개발 담당자와 협의해 요구사항을 보완했습니다."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Key Design Decisions — 주요 기획 판단",
+          "content": [
+            {
+              "type": "finding",
+              "title": "Decision 01. 계약 목록을 기업 중심의 정보구조로 전환",
+              "content": [
+                "분산된 계약 이력을 기업 기준으로 묶었습니다. 기업 상세에서 누적 현황·계약 이력·점검 항목을 연결하도록 정보구조를 설계했습니다."
+              ]
+            },
+            {
+              "type": "finding",
+              "title": "Decision 02. 위험신호와 판단 근거를 함께 제공",
+              "content": [
+                "위험신호에서 확인 항목과 관련 계약을 함께 살펴보도록 설계했습니다. 경고로 판단을 대신하지 않고, 담당자가 근거를 검토하는 흐름을 구성했습니다."
+              ]
+            },
+            {
+              "type": "finding",
+              "title": "Decision 03. 집계 기준을 데이터와 함께 설명",
+              "content": [
+                "전체 계약과 모니터링 대상의 집계값이 다를 수 있어, 조회 기간·기준일·범위·제외 조건을 함께 안내하도록 기획했습니다.",
+                {
+                  "type": "planningFlow",
+                  "caption": "데이터 처리와 모니터링의 개념적 흐름",
+                  "items": [
+                    {
+                      "title": "계약 데이터 수집",
+                      "text": "조회할 계약 정보 확보"
+                    },
+                    {
+                      "title": "정리·기업 식별",
+                      "text": "기업 단위로 이력 연결"
+                    },
+                    {
+                      "title": "건수·금액 집계",
+                      "text": "기간과 집계 범위 구분"
+                    },
+                    {
+                      "title": "모니터링 기준 적용",
+                      "text": "점검할 항목 구분"
+                    },
+                    {
+                      "title": "현황·위험신호 표시",
+                      "text": "신호와 근거 함께 제공"
+                    },
+                    {
+                      "title": "담당자 확인",
+                      "text": "관련 계약을 보고 검토"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "finding",
+              "title": "Decision 04. 전체 현황에서 근거 계약까지 단계적으로 탐색",
+              "content": [
+                "전체 현황 → 기업별 상세 → 근거 계약 순으로 정보를 나눴습니다. 아래는 이 탐색 구조를 설명하기 위해 새로 만든 예시 화면입니다.",
+                {
+                  "type": "planningDemo",
+                  "id": "contract-concept",
+                  "caption": "기업별 현황에서 계약 근거로 이어지는 탐색",
+                  "companies": [
+                    {
+                      "id": "sample-a",
+                      "name": "가상 기업 A",
+                      "state": "근거 확인",
+                      "signal": "계약 집중 현황",
+                      "explanation": "기업의 누적 현황을 확인한 뒤 부서별 계약 내역을 함께 살펴보는 예시입니다.",
+                      "contracts": [
+                        {
+                          "name": "예시 물품 계약 01",
+                          "department": "가상 부서 가",
+                          "amount": 900
+                        },
+                        {
+                          "name": "예시 용역 계약 02",
+                          "department": "가상 부서 가",
+                          "amount": 800
+                        },
+                        {
+                          "name": "예시 물품 계약 03",
+                          "department": "가상 부서 나",
+                          "amount": 700
+                        }
+                      ]
+                    },
+                    {
+                      "id": "sample-b",
+                      "name": "가상 기업 B",
+                      "state": "범위 확인",
+                      "signal": "집계 범위 확인",
+                      "explanation": "기업별 계약 현황과 함께 조회 범위·집계 조건을 확인하는 예시입니다.",
+                      "contracts": [
+                        {
+                          "name": "예시 용역 계약 04",
+                          "department": "가상 부서 다",
+                          "amount": 1000
+                        },
+                        {
+                          "name": "예시 물품 계약 05",
+                          "department": "가상 부서 가",
+                          "amount": 600
+                        }
+                      ]
+                    },
+                    {
+                      "id": "sample-c",
+                      "name": "가상 기업 C",
+                      "state": "정보 확인",
+                      "signal": "연관 정보 확인",
+                      "explanation": "기업 식별정보의 공통 항목을 살펴보기 전에 관련 계약부터 확인하는 예시입니다.",
+                      "contracts": [
+                        {
+                          "name": "예시 물품 계약 06",
+                          "department": "가상 부서 나",
+                          "amount": 700
+                        },
+                        {
+                          "name": "예시 용역 계약 07",
+                          "department": "가상 부서 다",
+                          "amount": 500
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
     {id:'project-003',title:'Project 03',summary:'프로젝트 소개를 준비하고 있습니다.',categories:['웹 분석','데이터 수집·태깅','데이터 시각화'],image:'assets/images/projects/placeholder-03.svg',imageAlt:'단색 임시 프로젝트 이미지',placeholder:true,featured:true,period:'',type:'',role:'',tools:[],overview:'실제 프로젝트 내용으로 교체할 임시 페이지입니다.',problem:'',process:[],results:'',reflection:''},
     {id:'project-004',title:'Project 04',summary:'프로젝트 소개를 준비하고 있습니다.',categories:['인공지능','IoT·임베디드','스마트팜'],image:'assets/images/projects/placeholder-04.svg',imageAlt:'단색 임시 프로젝트 이미지',placeholder:true,featured:true,period:'',type:'',role:'',tools:[],overview:'실제 프로젝트 내용으로 교체할 임시 페이지입니다.',problem:'',process:[],results:'',reflection:''}
   ]

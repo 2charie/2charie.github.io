@@ -95,3 +95,8 @@ project-001은 연구 질문·설계·분석·결과·한계를 담은 sections 
 추가 본문 블록: heading(text), note(text), steps/flow/findings(items: [{title, text}]), barChart(caption, unit, max, ticks, rows: [{label, detail, value}], note). 차트의 수치는 원문에서 확인한 집계값만 등록합니다. 대표 이미지는 assets/images/projects/personality-research.svg이며 실제 관측 자료가 아닌 개념 그래픽입니다.
 
 원문 대조와 확인 사항은 docs/project-001-review.md에 기록했습니다. 원본 PDF는 저장소에 포함하지 않습니다.
+
+## Project 02 기획 사례
+공공 계약 모니터링 프로젝트는 project-002의 sections 데이터로 관리합니다. 진행 중 상태와 담당 역할을 표시하고, 계획 과정 및 독립 제작 개념 화면을 추가했습니다. 신규 대표 이미지는 assets/images/projects/contract-monitoring-cover.svg, 기획 블록은 assets/js/project-planning.js와 assets/css/project-planning.css입니다.
+
+개념 화면의 기업·계약·금액은 가상 데이터입니다. planningDemo.companies의 계약 배열에서 건수·금액을 계산하며 실제 회사 자료를 등록하지 않습니다. 제작 범위와 로컬 검수 기록은 docs/project-002-notes.md에 있습니다.

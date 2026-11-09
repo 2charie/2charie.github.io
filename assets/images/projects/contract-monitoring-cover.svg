@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+<title id="title">계약 데이터의 통합과 검토</title>
+<desc id="desc">흩어진 계약 문서가 중앙의 공통 영역에 연결되고, 검토를 나타내는 확인 표시가 겹쳐진 추상적 개념 이미지.</desc>
+<rect width="1200" height="900" fill="#EEECE6"/>
+<g fill="none" stroke="#DEDCD5" stroke-width="2"><circle cx="600" cy="450" r="236"/><circle cx="600" cy="450" r="190"/></g>
+<g fill="none" stroke="#aaa79f" stroke-width="2"><path d="M342 286Q420 310 490 380M854 292Q790 334 718 380M304 610Q410 576 490 520M878 622Q790 584 718 518"/></g>
+<g fill="#F8F7F3" stroke="#77746E" stroke-width="2">
+<rect x="258" y="204" width="100" height="132" rx="5" transform="rotate(-8 308 270)"/>
+<rect x="842" y="226" width="100" height="132" rx="5" transform="rotate(8 892 292)"/>
+<rect x="220" y="560" width="100" height="132" rx="5" transform="rotate(-6 270 626)"/>
+<rect x="868" y="578" width="100" height="132" rx="5" transform="rotate(7 918 644)"/>
+</g>
+<g fill="none" stroke="#aaa79f" stroke-width="2"><path d="M278 244L332 236M280 266L334 258M862 260L916 268M860 282L914 290M240 600L294 594M242 622L296 616M890 614L944 620M888 636L942 642"/></g>
+<rect x="458" y="326" width="276" height="236" rx="8" fill="#F8F7F3" stroke="#171717" stroke-width="2"/>
+<path d="M458 384H734M490 355H558" fill="none" stroke="#171717" stroke-width="2"/>
+<g fill="#DEDCD5"><rect x="490" y="414" width="62" height="96" rx="3"/><rect x="570" y="414" width="62" height="96" rx="3"/><rect x="650" y="414" width="52" height="96" rx="3"/></g>
+<g fill="none" stroke="#77746E" stroke-width="2"><path d="M506 438H536M506 458H536M586 438H616M586 458H616M664 438H688M664 458H688"/></g>
+<circle cx="744" cy="558" r="62" fill="#EEECE6" stroke="#171717" stroke-width="2"/>
+<path d="M716 558L736 578L772 538" fill="none" stroke="#171717" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
