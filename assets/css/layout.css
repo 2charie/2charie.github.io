@@ -25,7 +25,10 @@
           .hero{
             height:70vh;
             min-height:480px;
-            background-color:var(--color-surface);
+            /* 배경 이미지를 어둡게 처리해 흰색 텍스트의 가독성을 확보합니다. */
+            color:var(--color-white);
+            background-color:#737373;
+            background-blend-mode:multiply;
             background-image:var(--hero-image);
             background-size:cover;
             background-position:center;

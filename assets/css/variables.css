@@ -31,6 +31,6 @@
   --content-width:1160px;
   --header-height:72px;
   --transition:200ms ease;
-  /* 이미지 등록 후 none을 url('../images/hero/hero.jpg')로 교체합니다. */
-  --hero-image:none;
+  /* 메인 Hero 배경 이미지: 교체 시 아래 경로를 수정합니다. */
+  --hero-image:url('../images/hero/hero-main.png');
 }

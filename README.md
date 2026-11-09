@@ -78,7 +78,7 @@ process: [
 
 ## Hero 및 연락처 수정
 1. assets/images/hero/에 이미지를 등록합니다.
-2. assets/css/variables.css의 --hero-image: none을 url('../images/hero/hero.jpg')로 변경합니다.
+2. 현재 Hero 이미지는 assets/images/hero/hero-main.png입니다. 교체하려면 assets/css/variables.css의 --hero-image 경로를 변경합니다.
 3. index.html의 #hero-title과 .hero-description을 수정합니다. 이미지 적용 후 글자 대비를 확인하고 필요하면 오버레이를 추가합니다.
 4. assets/js/projects-data.js의 email을 실제 주소로 채우면 Email 행이 mailto 링크로 바뀝니다. 빈 상태에서는 주소 준비 중으로 표시합니다.
 5. 역량·도구는 index.html의 .expertise-list를 수정합니다. About은 #about의 hidden을 제거하고 실제 제목과 본문을 추가합니다.
