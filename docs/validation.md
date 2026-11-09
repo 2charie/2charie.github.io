@@ -110,3 +110,11 @@ Skills 영역만 개선했습니다. 카드 최소 높이 200px/패딩 24px/간�
 scripts/validate-home.cjs로 1440/1280/834/390/360px에서 PC 높이 190–210px, 전체 동일 크기, 아이콘·제목 중앙 및 간격, SVG 5개 표시, 하단 정렬, 포커스, 태그별 프로젝트/건수, 새로고침·히스토리, 키보드·터치 이동 검증을 통과했습니다. Chromium Headless Shell/시스템 폰트 기준이고 페이지 오류·가로 넘침은 없습니다. 실제 화면 캡처 home-skills-v4-1440.png와 home-skills-v4-360.png를 확인했습니다. About·프로젝트 데이터·필터 코드는 이번 변경에서 수정하지 않았습니다.
 
 변경 파일: index.html의 Skills 마크업, assets/css/components.css의 Skills 규칙, scripts/validate-home.cjs, docs/design-guide.md·validation.md, assets/images/icons/lucide/README.md. 추가 파일: assets/images/icons/lucide/chart-column.svg.
+
+## 2026-11-09 Contact 이메일과 GNB 모달
+
+PORTFOLIO.email에 cksfl0214@gmail.com을 등록했습니다. Home Contact는 mailto 링크로 표시하고 GNB Contact는 Email/GitHub를 담은 공통 dialog를 엽니다. 모바일 메뉴를 먼저 닫고 모달을 열며 배경 스크롤을 잠급니다.
+
+scripts/validate-contact.cjs로 Home·Projects·상세 페이지 × 1440/834/390/360px 총 12개 화면에서 이메일/GitHub href, 모달 열기 시 URL 유지, 초점 진입·배경 포커스 차단·닫은 뒤 포커스 복귀, Escape/버튼/바깥 클릭 닫기, 스크롤 잠금 해제, 가로 넘침 없음을 확인했습니다. 추가로 모바일 터치 에뮬레이션에서 메뉴→Contact→닫기를 통과했습니다. 페이지 오류는 0건입니다. Chromium Headless Shell/시스템 폰트 기준이며 메일 발송은 실행하지 않고 mailto 주소만 확인했습니다. 실제 모바일 장치/Safari/Firefox 검증은 포함하지 않습니다.
+
+캡처: output/playwright/contact-modal-1440.png, contact-modal-360.png. 수정 파일: assets/js/projects-data.js·main.js, assets/css/components.css·responsive.css, docs/design-guide.md·validation.md. 추가 검증 스크립트: scripts/validate-contact.cjs.

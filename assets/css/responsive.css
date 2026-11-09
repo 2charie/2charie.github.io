@@ -48,12 +48,12 @@
                               .site-nav[data-open=true]{
                                 grid-template-rows:1fr;
                                 visibility:visible}
-                                .site-nav a{
+                                .site-nav :is(a,.nav-contact){
                                   padding:12px 0;
                                   min-height:48px}
-                                  .site-nav a:last-child{
+                                  .site-nav :is(a,.nav-contact):last-child{
                                     margin-bottom:16px}
-                                    .site-nav a[aria-current=page]:after{
+                                    .site-nav :is(a,.nav-contact)[aria-current=page]:after{
                                       display:none}
                                       .hero{
                                         height:70svh;

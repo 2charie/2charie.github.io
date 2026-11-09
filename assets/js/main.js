@@ -8,11 +8,33 @@
   const card = (project, index) => '<article class="project-card"><a class="project-card-link" href="' + escape(url('projects/detail.html?id=' + encodeURIComponent(project.id))) + '"><div class="project-image-wrap">' + image(project) + (project.placeholder ? '<span class="placeholder-label" aria-hidden="true">PROJECT IMAGE</span>' : '') + '</div><div class="project-card-meta"><span>' + String(index + 1).padStart(2,'0') + ' / PROJECT</span>' + (project.placeholder ? '<span>콘텐츠 준비 중</span>' : project.status ? '<span>' + escape(project.status) + '</span>' : '') + '</div><h3>' + escape(project.title) + '<span aria-hidden="true">↗</span></h3><p>' + escape(project.summary) + '</p>' + tags(project.categories) + '</a></article>';
   window.PortfolioUI = {url, escape, tags, image, card};
   const projectsPage = location.pathname.includes('/projects/');
-  document.querySelector('[data-header]').innerHTML = '<div class="container header-inner"><a class="logo" href="' + url('index.html') + '" aria-label="2charie 홈">2charie<span>.</span></a><button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button><nav id="site-nav" class="site-nav" aria-label="주요 내비게이션"><div class="nav-links"><a href="' + url('index.html') + '"' + (!projectsPage ? ' aria-current="page"' : '') + '>Home</a><a href="' + url('projects/index.html') + '"' + (projectsPage ? ' aria-current="page"' : '') + '>Projects</a><a href="' + url('index.html#contact') + '">Contact</a></div></nav></div>';
+  document.querySelector('[data-header]').innerHTML = '<div class="container header-inner"><a class="logo" href="' + url('index.html') + '" aria-label="2charie 홈">2charie<span>.</span></a><button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button><nav id="site-nav" class="site-nav" aria-label="주요 내비게이션"><div class="nav-links"><a href="' + url('index.html') + '"' + (!projectsPage ? ' aria-current="page"' : '') + '>Home</a><a href="' + url('projects/index.html') + '"' + (projectsPage ? ' aria-current="page"' : '') + '>Projects</a><button class="nav-contact" type="button" data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">Contact</button></div></nav></div>';
   document.querySelector('[data-footer]').innerHTML = '<div class="container footer-inner"><p>© ' + new Date().getFullYear() + ' 2charie. All rights reserved.</p><a class="footer-github" href="' + escape(PORTFOLIO.github) + '" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>';
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
   const setMenu = open => {toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open ? '메뉴 닫기' : '메뉴 열기');nav.dataset.open = String(open);};
+  const contactTrigger = document.querySelector('[data-contact-open]');
+  const dialog = document.createElement('dialog');
+  dialog.className = 'contact-dialog';
+  dialog.id = 'contact-dialog';
+  dialog.setAttribute('aria-labelledby','contact-dialog-title');
+  dialog.innerHTML = '<div class="contact-dialog-heading"><div><p class="eyebrow">CONTACT</p><h2 id="contact-dialog-title">Let\'s Connect.</h2></div><form method="dialog"><button class="contact-dialog-close" type="submit" aria-label="연락처 창 닫기" autofocus>×</button></form></div><div class="contact-links">' + (PORTFOLIO.email ? '<a class="contact-row" href="mailto:' + escape(PORTFOLIO.email) + '"><span>Email</span><span>' + escape(PORTFOLIO.email) + ' ↗</span></a>' : '') + '<a class="contact-row" href="' + escape(PORTFOLIO.github) + '" target="_blank" rel="noopener noreferrer"><span>GitHub</span><span>2charie ↗</span></a></div>';
+  document.body.append(dialog);
+  let contactReturnFocus;
+  contactTrigger.addEventListener('click', () => {
+    contactReturnFocus = matchMedia('(max-width:767px)').matches ? toggle : contactTrigger;
+    setMenu(false);
+    dialog.showModal();
+    document.body.classList.add('contact-modal-open');
+  });
+  dialog.addEventListener('click', event => {
+    const bounds = dialog.getBoundingClientRect();
+    if(event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
+  });
+  dialog.addEventListener('close', () => {
+    document.body.classList.remove('contact-modal-open');
+    contactReturnFocus?.focus({preventScroll:true});
+  });
   toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
   nav.addEventListener('click', event => {if(event.target.closest('a')) setMenu(false);});
   document.addEventListener('click', event => {if(!event.target.closest('.site-header')) setMenu(false);});

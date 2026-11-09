@@ -120,3 +120,8 @@ Home 순서는 Hero → Selected Projects → About → Skills → Contact입니
 Skills는 실제 a 태그 하나로 구성된 동일 크기 카드 5개입니다. 1024px 이상은 3+2개(아래 2개 중앙 정렬), 768–1023px은 2열, 767px 이하는 1열입니다. 최소 높이 200px, 패딩 24px, 카드 간격 24px이며 내용이 길면 높이가 늘어납니다. 상단은 30px Lucide 아이콘과 22px 제목을 12px 간격으로 가로 중앙 정렬합니다. 설명은 14px이며 상단에서 16px 아래에 표시합니다. 하단은 왼쪽 프로젝트 보기/오른쪽 화살표로 정렬합니다. 아이콘은 brain/panels-top-left/chart-column/cpu/sprout의 원본 경로를 inline SVG로 표시하며 24px viewBox/선 두께 1.5/둥근 끝처리를 통일합니다. 아이콘 배경은 없고 기본 보조색→상태 강조색을 적용합니다. 카드는 --color-white 배경과 1px 구분선, 호버·포커스에서 --color-surface 배경과 --color-text 테두리를 사용합니다. 이동·확대 없이 상태를 표시하며 키보드 포커스 외곽선을 유지합니다.
 
 매핑: 심리학→심리학, 웹 기획→서비스 기획, 데이터 분석→웹 분석, 인공지능→인공지능, 스마트팜→스마트팜. href는 projects/index.html?tag=인코딩된값입니다. projects.js가 기존 choose/render를 통해 URL·버튼·목록·건수를 함께 갱신합니다. 사용자 필터 변경은 pushState, 초기화는 tag 제거, popstate는 URL에서 상태 복원입니다. 누락·잘못된 태그는 전체를 표시합니다.
+
+## 15. Contact 모달
+GNB Contact는 페이지 이동 링크 대신 dialog를 여는 button입니다. main.js가 모든 페이지에 동일한 네이티브 dialog를 생성합니다. Email과 GitHub는 PORTFOLIO의 공통 데이터를 사용하고 Home Contact의 Email도 동일한 값으로 렌더링합니다. 현재 이메일은 cksfl0214@gmail.com입니다.
+
+모달은 최대 520px/좌우 최소 20px 여백, 기존 지면·선·라운드 토큰을 사용합니다. 제목 연결과 닫기 버튼 이름을 제공하며 네이티브 showModal로 배경 조작을 차단합니다. 모달을 열면 배경 스크롤을 잠그고 닫기 버튼으로 포커스를 이동합니다. 닫기 버튼·Escape·모달 바깥 클릭으로 닫으며, 데스크톱은 Contact 버튼/모바일은 닫힌 메뉴의 토글로 포커스를 돌립니다. 기존 Home #contact 직접 앵커 URL은 계속 지원합니다.

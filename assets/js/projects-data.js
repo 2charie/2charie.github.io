@@ -1,6 +1,6 @@
 // image 경로는 사이트 루트를 기준으로 입력합니다. 빈 콘텐츠는 상세 화면에서 생략됩니다.
 window.PORTFOLIO = {
-  email: '',
+  email: 'cksfl0214@gmail.com',
   github: 'https://github.com/2charie',
   categories: ['심리학','조사·연구','통계 분석','서비스 기획','UX/UI 설계','서비스 개선','웹 분석','데이터 수집·태깅','데이터 시각화','검색 최적화','인공지능','IoT·임베디드','클라우드','인프라','스마트팜','로봇·자동화'],
   projects: [
