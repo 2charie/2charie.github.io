@@ -1,0 +1,73 @@
+/* Scoped practical examples; other project pages retain their styles. */
+.analytics-spec, .analytics-dashboard, .analytics-improvement { margin: 20px 0 0; }
+.analytics-spec figcaption, .analytics-dashboard figcaption, .analytics-improvement figcaption { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; font-size: 14px; }
+.analytics-spec figcaption > strong, .analytics-dashboard figcaption > strong, .analytics-improvement figcaption > strong { font-weight: 600; }
+.analytics-example-label { display: inline-block; padding: 3px 8px; font-size: 11px; font-weight: 500; border: 1px solid var(--color-line); border-radius: var(--radius-tag); }
+.analytics-example-context, .analytics-example-note { font-size: 12px; line-height: 1.6; color: #605d57; }
+.analytics-example-context { margin: 8px 0 12px; }
+.analytics-example-note { margin-top: 10px; }
+.analytics-spec table, .analytics-improvement table { width: 100%; table-layout: fixed; }
+.analytics-spec th, .analytics-spec td, .analytics-improvement th, .analytics-improvement td { padding: 9px 12px; font-size: 13px; line-height: 1.5; vertical-align: top; overflow-wrap: anywhere; }
+.analytics-spec th { width: 112px; background: var(--color-surface); font-weight: 500; }
+.analytics-spec code { font-family: Consolas, monospace; font-size: 12px; }
+.analytics-improvement thead th { background: var(--color-surface); font-weight: 500; }
+.analytics-improvement th:first-child { width: 32%; }
+.analytics-improvement tbody th { font-weight: 500; }
+.analytics-improvement td > strong { display: block; margin-top: 4px; font-weight: 500; }
+.analytics-check { display: block; font-size: 12px; color: #605d57; }
+.analytics-dashboard-body { padding: 16px; border: 1px solid var(--color-line); border-radius: var(--radius-card); }
+.analytics-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0 0 18px; }
+.analytics-kpis dt { font-size: 12px; color: #605d57; margin-bottom: 6px; }
+.analytics-kpis dd { font-size: 24px; font-weight: 600; font-variant-numeric: tabular-nums; margin: 0; line-height: 1.2; }
+.analytics-trend-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.analytics-dashboard h3 { font-size: 13px; font-weight: 500; line-height: 1.5; }
+.analytics-trend-key { display: flex; gap: 12px; font-size: 10px; }
+.analytics-trend-key > span { display: flex; align-items: center; gap: 4px; }
+.analytics-trend-key i { display: inline-block; width: 10px; height: 7px; background: var(--color-text); border: 1px solid var(--color-text); }
+.analytics-trend-key i.is-outline { background: var(--color-bg); }
+.analytics-trend { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 8px; margin-bottom: 30px; }
+.analytics-y-axis { display: flex; height: 104px; flex-direction: column; justify-content: space-between; font-size: 10px; line-height: 1; color: #605d57; }
+.analytics-trend-plot { position: relative; height: 104px; border-bottom: 1px solid var(--color-line); }
+.analytics-grid { position: absolute; inset: 0; }
+.analytics-grid i { position: absolute; width: 100%; border-top: 1px solid var(--color-line); }
+.analytics-grid i:first-child { top: 0; }
+.analytics-grid i:nth-child(2) { top: 50%; }
+.analytics-grid i:last-child { bottom: 0; }
+.analytics-days { position: relative; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; height: 104px; margin: 0; padding: 0; list-style: none; }
+.analytics-days li { position: relative; height: 104px; }
+.analytics-series { display: flex; height: 100%; align-items: flex-end; justify-content: center; gap: 3px; }
+.analytics-session-bar, .analytics-engaged-bar { display: block; position: relative; width: 16px; max-width: 40%; }
+.analytics-session-bar { background: var(--color-text); }
+.analytics-engaged-bar { border: 1px solid var(--color-text); background: var(--color-bg); }
+.analytics-session-bar b { position: absolute; bottom: calc(100% + 2px); left: 50%; transform: translateX(-50%); font-size: 10px; font-weight: 400; line-height: 1; }
+.analytics-day-name { position: absolute; bottom: -18px; left: 0; right: 0; text-align: center; font-size: 11px; line-height: 1; }
+.analytics-breakdowns { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.analytics-breakdowns h3 { margin-bottom: 10px; }
+.analytics-breakdowns h3 small { float: right; font-size: 10px; color: #605d57; }
+.analytics-breakdowns ul { list-style: none; margin: 0; padding: 0; }
+.analytics-breakdowns li { margin-bottom: 8px; font-size: 12px; }
+.analytics-breakdowns li > div, .analytics-page-list li { display: flex; justify-content: space-between; gap: 8px; }
+.analytics-breakdowns b { font-weight: 500; font-variant-numeric: tabular-nums; }
+.analytics-channel-track { display: block; height: 3px; margin-top: 4px; background: var(--color-surface); }
+.analytics-channel-track > span { display: block; height: 100%; background: var(--color-text); }
+.analytics-page-list li { border-bottom: 1px solid var(--color-line); padding-bottom: 8px; }
+.analytics-review-note { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--color-line); font-size: 12px; line-height: 1.6; }
+.analytics-review-note strong { font-weight: 500; margin-right: 4px; }
+@media (max-width: 767px) {
+  .analytics-spec th { width: 84px; }
+  .analytics-spec th, .analytics-spec td, .analytics-improvement th, .analytics-improvement td { padding: 8px; }
+  .analytics-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 16px; }
+  .analytics-kpis dd { font-size: 22px; }
+  .analytics-dashboard-body { padding: 14px 12px; }
+  .analytics-days { gap: 3px; }
+  .analytics-breakdowns { gap: 16px; }
+  .analytics-example-label { font-size: 10px; }
+}
+
+/* Text-led tool and operation sections. */
+[data-project-kind="analytics"] .research-subheading { margin: 20px 0 10px; font-size: 16px; font-weight: 600; }
+[data-project-kind="analytics"] .research-list { margin: 12px 0 18px; }
+[data-project-kind="analytics"] .research-list li { padding-block: 4px; }
+[data-project-kind="analytics"] .research-findings { list-style: none; padding: 0; margin: 18px 0 0; }
+[data-project-kind="analytics"] .research-findings li + li { margin-top: 18px; }
+[data-project-kind="analytics"] .research-findings h3 { margin-bottom: 6px; font-size: 16px; font-weight: 600; }

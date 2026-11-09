@@ -100,3 +100,15 @@ project-001은 연구 질문·설계·분석·결과·한계를 담은 sections 
 공공 계약 모니터링 프로젝트는 project-002의 sections 데이터로 관리합니다. 진행 중 상태와 담당 역할을 표시하고, 계획 과정 및 독립 제작 개념 화면을 추가했습니다. 신규 대표 이미지는 assets/images/projects/contract-monitoring-cover.svg, 기획 블록은 assets/js/project-planning.js와 assets/css/project-planning.css입니다.
 
 개념 화면의 기업·계약·금액은 가상 데이터입니다. planningDemo.companies의 계약 배열에서 건수·금액을 계산하며 실제 회사 자료를 등록하지 않습니다. 제작 범위와 로컬 검수 기록은 docs/project-002-notes.md에 있습니다.
+
+## Project 03 웹 데이터 수집·분석
+project-003의 sections에서 개요, GA4 기본 수집, GTM 행동 수집, Looker Studio 시각화, 운영 분석, 웹사이트 개선 컨설팅, 수행 결과·회고의 7개 영역을 관리합니다. 여러 공공 웹사이트의 경험을 종합하며 산출물이라는 표기는 제외했습니다.
+
+본문은 공통 heading/list/findings 블록으로 구성합니다. 이전 가상 표·대시보드 블록은 현재 본문에서 사용하지 않습니다. 대표 이미지 assets/images/projects/web-analytics-cover.svg와 기존 분석 예시 렌더러 파일은 유지했습니다.
+
+수정 범위와 로컬 검수 기록은 docs/project-003-notes.md에 있습니다.
+
+## Project 04 해충 이미지 분류
+project-004는 ResNet50 전이학습, 두 단계 학습, Stratified 5-Fold와 Fold 확률 평균 코드를 소개합니다. 사용자가 지정한 당시 노트북의 코드와 저장된 출력만 대조했으며 원본 노트북은 사이트에 포함하지 않았습니다.
+
+결과 그래프는 완료 로그가 남은 세 Fold의 미세조정 단계 최고 검증 정확도입니다. 전체 교차검증 평균이나 대회 제출 점수로 해석하지 않습니다. 대표 이미지는 assets/images/projects/pest-classification-cover.svg, 전용 스타일은 assets/css/project-vision.css입니다. assets/js/project-vision.js의 trainingStages 블록은 전이학습·부분 미세조정에서 학습한 계층을 두 행으로 보여줍니다. 원본 확인 범위와 검수 기록은 docs/project-004-notes.md에 있습니다.

@@ -15,7 +15,15 @@
    if(typeof content === 'string') return '<p>' + escape(content) + '</p>';
    if(!Array.isArray(content)) return '';
    return content.map(block => {
+     // Explicit opt-in; recursively render without accepting arbitrary layout classes.
+     if(block && typeof block === 'object' && block.width === 'wide') {
+       return '<div class="detail-wide">' + blocks([{...block, width:undefined}]) + '</div>';
+     }
      if(typeof block === 'string') return '<p>' + escape(block) + '</p>';
+     const visionBlock = window.VisionUI?.renderBlock(block);
+     if(visionBlock != null) return visionBlock;
+     const analyticsBlock = window.AnalyticsUI?.renderBlock(block);
+     if(analyticsBlock != null) return analyticsBlock;
      const planningBlock = window.PlanningUI?.renderBlock(block);
      if(planningBlock != null) return planningBlock;
      if(block.type === 'finding') return '<section class="research-finding"><h3>' + escape(block.title) + '</h3>' + blocks(block.content) + '</section>';
@@ -47,7 +55,15 @@
      return block.text ? '<p>' + escape(block.text) + '</p>' : '';
    }).join('');
  };
- const info = [['기간',project.period],['수행 유형',project.type],['담당 역할',project.role],['기술 및 도구',project.tools?.join(' · ')]] .filter(([,value]) => value);
+ const metaValue = value => (Array.isArray(value) ? value.map(item => String(item ?? '').trim()).filter(Boolean).join(' · ') : String(value ?? '').trim());
+ const primaryInfo = [['수행 유형',project.type],['담당 역할',project.role]]
+   .map(([label,value]) => ({label,value:metaValue(value)})).filter(item => item.value);
+ const info = [
+   ...primaryInfo.map(item => ({...item, paired:primaryInfo.length === 2})),
+   {label:'기술 및 도구',value:metaValue(project.tools)},
+   {label:'기간',value:metaValue(project.period)},
+   ...(Array.isArray(project.metadata) ? project.metadata.map(item => ({label:metaValue(item.label),value:metaValue(item.value)})) : [])
+ ].filter(item => item.label && item.value);
  const sectionData = project.sections || [
    {title:'프로젝트 개요',content:project.overview},
    {title:'문제 정의 및 목표',content:project.problem},
@@ -60,6 +76,6 @@
    return body ? '<section class="detail-section"><h2>' + escape(title) + '</h2>' + body + '</section>' : '';
  }).join('');
  const neighbor = (item,label) => item ? '<a href="detail.html?id=' + encodeURIComponent(item.id) + '"><small>' + label + '</small>' + escape(item.title) + ' ↗</a>' : '<span></span>';
- host.innerHTML = '<article><div class="detail-heading"><span class="eyebrow">PROJECT / ' + String(index+1).padStart(2,'0') + (project.placeholder ? ' · 콘텐츠 준비 중' : '') + '</span>' + (project.status ? '<span class="planning-status">' + escape(project.status) + '</span>' : '') + '<h1>' + escape(project.title) + '</h1>' + (project.subtitle ? '<p class="research-subtitle">' + escape(project.subtitle) + '</p>' : '') + '<p>' + escape(project.summary) + '</p>' + tags(project.categories) + '</div>' + (project.image ? '<div class="detail-placeholder">' + image(project,'detail-cover') + (project.placeholder ? '<span class="placeholder-label" aria-hidden="true">PROJECT IMAGE</span>' : '') + '</div>' : '') + (info.length ? '<dl class="detail-info">' + info.map(([label,value]) => '<div><dt>' + label + '</dt><dd>' + escape(value) + '</dd></div>').join('') + '</dl>' : '') + (sections ? '<div class="detail-body">' + sections + '</div>' : '') + '<nav class="project-pagination" aria-label="인접 프로젝트">' + neighbor(projects[index-1],'← 이전 프로젝트') + neighbor(projects[index+1],'다음 프로젝트 →') + '</nav></article><div class="section-action"><a class="button button-secondary" href="index.html">프로젝트 목록으로 돌아가기 ↗</a></div>';
+ host.innerHTML = '<article><div class="detail-heading"><span class="eyebrow">PROJECT / ' + String(index+1).padStart(2,'0') + (project.placeholder ? ' · 콘텐츠 준비 중' : '') + '</span>' + (project.status ? '<span class="planning-status">' + escape(project.status) + '</span>' : '') + '<h1>' + escape(project.title) + '</h1>' + (project.subtitle ? '<p class="research-subtitle">' + escape(project.subtitle) + '</p>' : '') + '<p>' + escape(project.summary) + '</p>' + tags(project.categories) + '</div>' + (project.image ? '<div class="detail-placeholder">' + image(project,'detail-cover') + (project.placeholder ? '<span class="placeholder-label" aria-hidden="true">PROJECT IMAGE</span>' : '') + '</div>' : '') + (info.length ? '<dl class="detail-info">' + info.map(({label,value,paired}) => '<div class="detail-meta-item' + (paired ? ' is-paired' : '') + '"><dt>' + escape(label) + '</dt><dd>' + escape(value) + '</dd></div>').join('') + '</dl>' : '') + (sections ? '<div class="detail-body">' + sections + '</div>' : '') + '<nav class="project-pagination" aria-label="인접 프로젝트">' + neighbor(projects[index-1],'← 이전 프로젝트') + neighbor(projects[index+1],'다음 프로젝트 →') + '</nav></article><div class="section-action"><a class="button button-secondary" href="index.html">프로젝트 목록으로 돌아가기 ↗</a></div>';
  window.PlanningUI?.init(host);
 })();

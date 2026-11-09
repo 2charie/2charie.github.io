@@ -29,6 +29,15 @@
   --radius-button:6px;
   --radius-tag:4px;
   --content-width:1160px;
+  --detail-width:800px;
+  --detail-wide-width:var(--content-width);
+  --detail-gutter:var(--space-8);
+  --detail-prose-width:70ch;
+  --detail-section-gap:var(--space-12);
+  --detail-block-gap:var(--space-6);
+  --detail-meta-column-gap:var(--space-6);
+  --detail-meta-row-gap:var(--space-6);
+  --detail-leading:1.75;
   --header-height:72px;
   --transition:200ms ease;
   /* 메인 Hero 배경 이미지: 교체 시 아래 경로를 수정합니다. */

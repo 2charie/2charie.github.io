@@ -1,0 +1,72 @@
+/* Shared detail layout. Content renderers own only their internal visualizations. */
+.detail-main {
+  width:calc(100% - var(--detail-gutter) * 2);
+  max-width:var(--detail-width);
+  padding-block:var(--space-10) var(--space-24);
+  min-height:calc(100vh - 180px);
+  overflow-wrap:anywhere;
+}
+.detail-heading { padding-block:var(--space-12) var(--space-10); }
+.detail-heading h1 { margin-block:var(--space-5); }
+.detail-heading > p { color:var(--color-muted); font-size:18px; margin-bottom:var(--detail-block-gap); }
+.detail-cover {
+  width:100%; height:auto; aspect-ratio:4/3; object-fit:contain;
+  border-radius:var(--radius-image); background:var(--color-surface);
+}
+.detail-info {
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:var(--detail-meta-row-gap) var(--detail-meta-column-gap);
+  margin:0; padding-block:var(--space-8);
+  border-bottom:1px solid var(--color-line);
+}
+.detail-meta-item { grid-column:1 / -1; min-width:0; }
+.detail-meta-item.is-paired { grid-column:auto; }
+.detail-info dt { font-size:var(--text-meta); color:var(--color-muted); margin-bottom:var(--space-2); }
+.detail-info dd { margin:0; font-size:var(--text-body); line-height:var(--detail-leading); }
+.detail-body { margin-block:var(--detail-section-gap); line-height:var(--detail-leading); }
+.detail-body *, .project-pagination > * { min-width:0; }
+.detail-section + .detail-section { margin-top:var(--detail-section-gap); }
+.detail-section > h2 { font-size:var(--text-h3); margin-bottom:var(--space-5); }
+.detail-section p { white-space:pre-line; }
+.detail-section > p { max-width:var(--detail-prose-width); }
+.detail-section > p + p { margin-top:var(--space-4); }
+.detail-section > h3, .research-subheading { font-size:20px; line-height:1.45; margin-block:var(--detail-block-gap) var(--space-3); }
+.detail-section :is(ul,ol) { line-height:var(--detail-leading); }
+.detail-section > :is(ul,ol) { margin-block:var(--detail-block-gap); }
+.detail-section :is(figure,.table-scroll,.research-chart,.research-details) { margin-block:var(--detail-block-gap); margin-inline:0; max-width:100%; }
+.detail-section img { max-width:100%; height:auto; border-radius:var(--radius-image); }
+.detail-body :is(figcaption,caption) {
+  font-size:var(--text-small); line-height:1.6; font-weight:500;
+  color:var(--color-muted); text-align:left; margin:0;
+}
+.detail-body figcaption:first-child, .detail-body caption { margin-bottom:var(--space-3); }
+.detail-body figcaption:last-child { margin-top:var(--space-3); }
+.detail-section table { border-collapse:collapse; width:100%; font-size:var(--text-small); }
+.detail-section :is(th,td) { border:1px solid var(--color-line); padding:var(--space-3); text-align:left; }
+.detail-section .table-scroll { overflow-x:auto; overscroll-behavior-x:contain; }
+.detail-section a { text-decoration:underline; text-underline-offset:4px; }
+.research-note { margin-block:var(--detail-block-gap); padding:var(--space-4) var(--space-5); border-left:2px solid var(--color-line); font-size:var(--text-small); color:var(--color-muted); }
+.project-pagination {
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-6);
+  border-block:1px solid var(--color-line); padding-block:var(--space-6);
+}
+.project-pagination a { padding-block:var(--space-2); }
+.project-pagination a:last-child { text-align:right; }
+.project-pagination small { display:block; color:var(--color-muted); margin-bottom:var(--space-2); }
+/* Explicit wide blocks stay centered and fit the same page gutters at every viewport. */
+.detail-wide {
+  width:min(var(--detail-wide-width), calc(100vw - var(--detail-gutter) * 2));
+  max-width:none; position:relative; left:50%; transform:translateX(-50%);
+}
+@media(max-width:767px) {
+  .detail-main {
+    --detail-gutter:var(--space-5);
+    --detail-section-gap:var(--space-10);
+    --detail-meta-column-gap:var(--space-4);
+    padding-block:var(--space-6) var(--space-16);
+  }
+  .detail-heading { padding-block:var(--space-8); }
+  .detail-heading > p { font-size:var(--text-body); }
+  .detail-info { grid-template-columns:minmax(0,1fr); }
+  .detail-info dd, .project-pagination { font-size:var(--text-small); }
+}

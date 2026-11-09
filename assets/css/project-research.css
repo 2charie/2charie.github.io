@@ -1,10 +1,5 @@
 /* Only research-specific detail blocks use these styles. */
 .detail-heading > .research-subtitle { color: var(--color-text); line-height: 1.6; }
-[data-research="true"] .detail-cover { object-fit: contain; }
-[data-research="true"] .detail-info { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
-[data-research="true"] .detail-body { max-width: 760px; margin-block: 56px; }
-[data-research="true"] .detail-section { margin-bottom: 56px; }
-[data-research="true"] .detail-section > p + p { margin-top: 16px; }
 .research-list { padding-left: 24px; margin: 24px 0; }
 .research-list li { padding: 6px 0 6px 4px; line-height: 1.7; }
 .research-list li + li { margin-top: 4px; }
@@ -60,9 +55,6 @@
 .research-line { width: 24px; height: 0; border-top: 2px solid var(--color-text); }
 .research-line.is-dashed { border-top-style: dashed; border-top-color: #af4f61; }
 @media (max-width: 767px) {
-  [data-research="true"] .detail-info { grid-template-columns: 1fr; }
-  [data-research="true"] .detail-body { margin-block: 40px; }
-  [data-research="true"] .detail-section { margin-bottom: 40px; }
   .research-flow { grid-template-columns: 1fr; gap: 20px; }
   .research-flow li { padding-top: 12px; }
   .research-flow li:not(:last-child)::after { content: '↓'; right: auto; left: 0; top: auto; bottom: -22px; }

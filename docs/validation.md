@@ -42,3 +42,31 @@
 
 ## 기록 파일
 output/playwright/home-desktop.png — 실제 브라우저 데스크톱 Home 캡처. 검증 자료이므로 호스팅에 포함할 필요가 없습니다.
+
+## 2026-11-09 상세 페이지 공통 시스템
+
+이 절은 현재 Project 01~04의 실제 콘텐츠를 대상으로 한 추가 검증입니다. 앞선 초기 구축 기록의 미등록 콘텐츠 설명은 당시 상태입니다.
+
+기존 문제는 기본 컨테이너 1160px, 제목 900px, 본문 760px이 서로 달랐고 연구/분석/비전 스타일에서 메타 열 비율·간격을 덮어쓴 데 있었습니다. 상세 전용 공통 CSS로 800px 기준선을 통합했습니다. ID별 보정은 추가하지 않았습니다. 프로젝트 데이터·이미지·통계 수치·Home/목록 HTML은 이번 작업에서 변경하지 않았습니다.
+
+Chromium Headless Shell에서 `scripts/validate-detail.cjs`로 50개 사례를 통과했습니다. 각 사례는 1440/1280/834/390/360px에서 실행했습니다.
+
+| 대상 | 결과 |
+| --- | --- |
+| Project 01 | 수행 유형 전체 행, 기술·도구 독립 전체 행 정상 |
+| Project 02 | 수행 유형/담당 역할 데스크톱 50:50, 모바일 1열 정상 |
+| Project 03 | 수행 유형/담당 역할 50:50, 긴 기술 목록 전체 행 정상 |
+| Project 04 | 수행 유형/담당 역할 50:50, 여러 도구·이미지·차트 정상 |
+| 수행 유형만 / 역할만 / 도구만 | 각 5개 화면에서 전체 행 정상 |
+| 메타 없음 / 공백만 있음 | 각 5개 화면에서 dl·구분선 생략 |
+| 긴 제목·영문·URL·기술 목록·추가 메타 | 줄바꿈 및 추가 항목 전체 행, 빈 항목 생략 정상 |
+| 확장 표·차트 | 최대 1160px/화면 여백 유지, 일반 본문은 800px 유지 |
+| 모바일 표 | 표 내부 가로 스크롤, 페이지 가로 넘침 없음 |
+| 긴 이전·다음 제목 | 줄바꿈 후 페이지 가로 넘침 없음 |
+| 인터랙션 | details 펼치기 및 기획 데모 기업 전환 정상 |
+
+모든 사례에서 제목·대표 이미지(있는 경우)·메타·본문·이전/다음 탐색의 좌우 좌표와 너비가 일치했습니다. 기존 프로젝트 이미지 로딩 실패와 JavaScript 페이지 오류는 0건입니다. 데스크톱과 360px 모바일 스크린샷 8장을 저장하고 화면 구성을 확인했습니다.
+
+검증 자료: `output/playwright/detail-system-results.json`, `output/playwright/detail-system-project-00{1..4}-{1440,360}.png`. `DETAIL_TEST_URL`로 검증 서버 주소를 지정할 수 있습니다. 외부 CDN 대기를 차단해 시스템 폰트로 검사했으므로 Pretendard 다운로드 상태와 별도 Safari/Firefox/실제 모바일 하드웨어는 이번 검증에 포함하지 않았습니다.
+
+수정 파일: `assets/css/variables.css`, `layout.css`, `responsive.css`, `project-research.css`, `project-analytics.css`, `project-vision.css`, 신규 `project-detail.css`, `assets/js/project-detail.js`, `projects/detail.html`, `scripts/validate-detail.cjs`, `docs/design-guide.md`, 이 문서. 기존 작업 중 변경사항은 보존했습니다.
