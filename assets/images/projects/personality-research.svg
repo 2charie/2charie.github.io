@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+<title id="title">Personality, response and analysis</title><desc id="desc">Conceptual illustration of questionnaire responses and comparison. Not observed data.</desc>
+<rect width="1200" height="900" fill="#EEECE6"/>
+<g fill="none" stroke="#171717" stroke-width="2">
+<rect x="124" y="206" width="358" height="434" rx="6"/>
+<path d="M164 254H342M164 278H278" stroke="#77746E"/>
+<path d="M164 332H258M164 404H258M164 476H258M164 548H258"/>
+<g stroke="#77746E"><circle cx="312" cy="330" r="10"/><circle cx="360" cy="330" r="10"/><circle cx="408" cy="330" r="10"/><circle cx="312" cy="402" r="10"/><circle cx="360" cy="402" r="10"/><circle cx="408" cy="402" r="10"/><circle cx="312" cy="474" r="10"/><circle cx="360" cy="474" r="10"/><circle cx="408" cy="474" r="10"/><circle cx="312" cy="546" r="10"/><circle cx="360" cy="546" r="10"/><circle cx="408" cy="546" r="10"/></g>
+<path d="M514 424H654M638 408L654 424L638 440"/>
+<rect x="690" y="254" width="354" height="338" rx="6"/>
+<path d="M734 310H874M734 350H940M734 390H812" stroke="#77746E"/>
+<path d="M734 448H1000M734 490H1000M734 532H1000" stroke="#DEDCD5"/>
+<path d="M734 448H954M734 490H868M734 532H914" stroke-width="10"/>
+</g>
+<g fill="#171717"><circle cx="360" cy="330" r="6"/><circle cx="408" cy="402" r="6"/><circle cx="312" cy="474" r="6"/><circle cx="360" cy="546" r="6"/></g>
+<g font-family="Pretendard, Arial, sans-serif"><text x="124" y="130" fill="#77746E" font-size="19" letter-spacing="3">PSYCHOLOGY / RESEARCH &amp; DATA ANALYSIS</text><text x="124" y="734" fill="#171717" font-size="52" font-weight="600">Beyond the response.</text><text x="126" y="786" fill="#77746E" font-size="22">ATQ-P · ATQ-N · SDS-24 / CONCEPTUAL ILLUSTRATION</text></g>
+</svg>

@@ -1,0 +1,83 @@
+/* Only research-specific detail blocks use these styles. */
+.detail-heading > .research-subtitle { color: var(--color-text); line-height: 1.6; }
+[data-research="true"] .detail-cover { object-fit: contain; }
+[data-research="true"] .detail-info { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+[data-research="true"] .detail-body { max-width: 760px; margin-block: 56px; }
+[data-research="true"] .detail-section { margin-bottom: 56px; }
+[data-research="true"] .detail-section > p + p { margin-top: 16px; }
+.research-list { padding-left: 24px; margin: 24px 0; }
+.research-list li { padding: 6px 0 6px 4px; line-height: 1.7; }
+.research-list li + li { margin-top: 4px; }
+.research-list li::marker { color: var(--color-muted); font-size: 14px; }
+.research-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; list-style: none; padding: 0; margin: 28px 0; }
+.research-flow li { position: relative; border-top: 2px solid var(--color-line); padding-top: 16px; }
+.research-flow li:not(:last-child)::after { content: '→'; position: absolute; right: -18px; top: 16px; color: var(--color-muted); }
+.research-flow h3 { font-size: 16px; line-height: 1.5; margin-bottom: 12px; }
+.research-flow p { font-size: 14px; line-height: 1.7; }
+.research-finding > h3 { font-size: 22px; line-height: 1.45; margin-bottom: 24px; }
+.research-finding + .research-finding { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--color-line); }
+.research-chart { margin: 24px 0; }
+.research-chart figcaption { font-size: 16px; font-weight: 600; }
+.research-chart-unit { font-size: 14px; margin-top: 8px; }
+.research-chart-rows { display: grid; gap: 24px; margin-top: 24px; }
+.research-chart-row { display: grid; grid-template-columns: 88px minmax(0, 1fr) 64px; gap: 16px; align-items: center; }
+.research-chart-label { font-size: 16px; }
+.research-bar-track { height: 36px; border-left: 1px solid var(--color-text); background: var(--color-surface); }
+.research-bar { height: 100%; background: var(--color-text); }
+.research-chart-value { font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+.research-chart-axis { padding: 12px 80px 0 104px; font-size: 12px; }
+.research-chart-axis > div { display: flex; justify-content: space-between; }
+.research-chart-key { font-size: 13px; margin-top: 16px; }
+.research-chart-note, .research-explainer { font-size: 13px; color: #605d57; margin: 16px 0; line-height: 1.7; }
+.research-details { margin: 24px 0; border-block: 1px solid var(--color-line); }
+.research-details > summary { cursor: pointer; padding: 16px 4px; font-size: 14px; font-weight: 500; min-height: 48px; }
+.research-details > summary:hover { color: #605d57; }
+.research-details > summary:focus-visible { outline: 2px solid var(--color-text); outline-offset: 4px; }
+.research-details-body { padding: 0 0 24px; }
+.research-details-body > p { font-size: 14px; line-height: 1.7; }
+.research-table { margin: 24px 0; max-width: 100%; }
+.research-table caption { text-align: left; font-size: 14px; margin-bottom: 12px; line-height: 1.6; }
+.research-table table { min-width: 580px; }
+.research-table.is-compact table { min-width: 0; }
+.research-table th { background: var(--color-surface); font-weight: 600; }
+.research-table td { vertical-align: top; }
+.research-table th:first-child { min-width: 130px; }
+.research-table.is-compact th:first-child { min-width: 88px; }
+.research-models { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; list-style: none; margin: 24px 0 0; padding: 0; }
+.research-models li { border-block: 1px solid var(--color-line); padding: 20px 0; }
+.research-models h4 { font-size: 16px; margin: 0 0 4px; }
+.research-model-variables { font-size: 13px; color: #605d57; }
+.research-models dl { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 20px 0; }
+.research-models dt { font-size: 12px; color: var(--color-muted); margin-bottom: 4px; }
+.research-models dd { font-size: 26px; font-weight: 600; line-height: 1.2; font-variant-numeric: tabular-nums; margin: 0; }
+.research-model-significance { font-size: 12px; }
+.research-figure { margin: 24px 0 16px; }
+.research-figure > figcaption { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+.research-image { width: 100%; background: #fff; border-radius: var(--radius-image); }
+.research-image img { display: block; width: 100%; max-width: 100%; height: auto; margin: 0; border-radius: var(--radius-image); }
+.research-legend { list-style: none; display: flex; flex-wrap: wrap; gap: 12px 24px; padding: 0; margin: 16px 0; font-size: 14px; }
+.research-legend li { display: flex; align-items: center; gap: 8px; }
+.research-line { width: 24px; height: 0; border-top: 2px solid var(--color-text); }
+.research-line.is-dashed { border-top-style: dashed; border-top-color: #af4f61; }
+@media (max-width: 767px) {
+  [data-research="true"] .detail-info { grid-template-columns: 1fr; }
+  [data-research="true"] .detail-body { margin-block: 40px; }
+  [data-research="true"] .detail-section { margin-bottom: 40px; }
+  .research-flow { grid-template-columns: 1fr; gap: 20px; }
+  .research-flow li { padding-top: 12px; }
+  .research-flow li:not(:last-child)::after { content: '↓'; right: auto; left: 0; top: auto; bottom: -22px; }
+  .research-flow h3 { margin-bottom: 8px; }
+  .research-finding > h3 { font-size: 20px; }
+  .research-finding + .research-finding { margin-top: 32px; padding-top: 24px; }
+  .research-chart-row { grid-template-columns: 64px minmax(0, 1fr) 56px; gap: 12px; }
+  .research-chart-label { font-size: 14px; }
+  .research-chart-value { font-size: 16px; }
+  .research-chart-axis { padding: 12px 68px 0 76px; }
+  .research-models { grid-template-columns: 1fr; gap: 0; }
+  .research-models li { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; padding: 16px 0; border-bottom: 0; }
+  .research-models li:last-child { border-bottom: 1px solid var(--color-line); }
+  .research-models dl { grid-column: 2; grid-row: 1 / 4; align-self: center; margin: 0; }
+  .research-models dd { font-size: 22px; }
+  .research-model-variables, .research-model-significance { grid-column: 1; }
+  .research-model-significance { margin-top: 8px; }
+}

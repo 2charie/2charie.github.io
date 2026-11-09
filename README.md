@@ -88,3 +88,10 @@ process: [
 
 ## 향후 GitHub Pages 참고
 2charie.github.io 저장소 루트에 index.html과 assets, projects를 동일한 구조로 배치할 수 있습니다. 경로는 스크립트 위치로부터 사이트 루트를 계산하므로 하위 경로에서도 작동합니다. 서버 스크립트는 개발 전용이며 배포에 필요하지 않습니다. 커스텀 도메인, 자동 배포, Git 커밋·푸시는 이번 작업에 포함하지 않았습니다. 정적 호스팅에서 데이터 기반 상세 화면은 JavaScript가 필요합니다.
+
+## Project 01 연구 콘텐츠
+project-001은 연구 질문·설계·분석·결과·한계를 담은 sections 배열을 사용합니다. 각 항목은 title과 content(기존 본문 블록 배열)를 가집니다. 기존 overview/problem/process/results/reflection 필드도 계속 지원하므로 다른 프로젝트를 수정할 필요가 없습니다.
+
+추가 본문 블록: heading(text), note(text), steps/flow/findings(items: [{title, text}]), barChart(caption, unit, max, ticks, rows: [{label, detail, value}], note). 차트의 수치는 원문에서 확인한 집계값만 등록합니다. 대표 이미지는 assets/images/projects/personality-research.svg이며 실제 관측 자료가 아닌 개념 그래픽입니다.
+
+원문 대조와 확인 사항은 docs/project-001-review.md에 기록했습니다. 원본 PDF는 저장소에 포함하지 않습니다.
