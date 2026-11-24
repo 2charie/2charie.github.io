@@ -1,0 +1,105 @@
+[data-project-kind="policy"] .research-flow {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+[data-project-kind="policy"] .research-chart-row {
+  grid-template-columns: 180px minmax(0, 1fr) 48px;
+  gap: var(--space-3);
+}
+
+[data-project-kind="policy"] .research-chart-axis {
+  padding-inline: 192px 60px;
+}
+
+.policy-budget li p {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-small);
+  color: #605d57;
+}
+
+.policy-budget-total {
+  margin-bottom: var(--space-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.policy-budget-bar {
+  display: flex;
+  height: var(--space-8);
+  border-radius: var(--radius-tag);
+  overflow: hidden;
+}
+
+.policy-budget ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0 0;
+}
+
+.policy-budget li {
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.policy-budget-item {
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: var(--space-2);
+  font-size: var(--text-small);
+}
+
+.policy-budget-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.policy-budget li p {
+  margin-left: var(--space-5);
+}
+
+.policy-budget-value {
+  font-variant-numeric: tabular-nums;
+}
+
+.policy-budget-bar > :nth-child(1),
+.policy-budget li:nth-child(1) .policy-budget-swatch { background: #242321; }
+.policy-budget-bar > :nth-child(2),
+.policy-budget li:nth-child(2) .policy-budget-swatch { background: #526257; }
+.policy-budget-bar > :nth-child(3),
+.policy-budget li:nth-child(3) .policy-budget-swatch { background: #897a64; }
+.policy-budget-bar > :nth-child(4),
+.policy-budget li:nth-child(4) .policy-budget-swatch { background: #a19b8f; }
+.policy-budget-bar > :nth-child(5),
+.policy-budget li:nth-child(5) .policy-budget-swatch { background: #b8ac93; }
+.policy-budget-bar > :nth-child(6),
+.policy-budget li:nth-child(6) .policy-budget-swatch { background: #d2cbbf; }
+
+@media (max-width: 767px) {
+  [data-project-kind="policy"] .research-flow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-project-kind="policy"] .research-chart-row {
+    grid-template-columns: minmax(0, 1fr) 48px;
+    row-gap: var(--space-1);
+  }
+
+  [data-project-kind="policy"] .research-chart-label {
+    grid-column: 1 / -1;
+  }
+
+  [data-project-kind="policy"] .research-bar-track {
+    height: var(--space-5);
+  }
+
+  [data-project-kind="policy"] .research-chart-axis {
+    padding-inline-start: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .policy-budget-value {
+    grid-column: 2;
+  }
+}
