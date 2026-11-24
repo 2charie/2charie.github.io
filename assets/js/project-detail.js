@@ -24,6 +24,8 @@
      if(visionBlock != null) return visionBlock;
      const analyticsBlock = window.AnalyticsUI?.renderBlock(block);
      if(analyticsBlock != null) return analyticsBlock;
+     const policyBlock = window.PolicyUI?.renderBlock(block);
+     if(policyBlock != null) return policyBlock;
      const planningBlock = window.PlanningUI?.renderBlock(block);
      if(planningBlock != null) return planningBlock;
      if(block.type === 'finding') return '<section class="research-finding"><h3>' + escape(block.title) + '</h3>' + blocks(block.content) + '</section>';
@@ -47,7 +49,8 @@
      }
      if(block.type === 'barChart' && block.rows?.length && block.max > 0) {
        const rows = block.rows.filter(row => Number.isFinite(row.value) && row.value >= 0 && row.value <= block.max);
-       return '<figure class="research-chart"><figcaption>' + escape(block.caption) + '</figcaption><p class="research-chart-unit">' + escape(block.unit) + '</p><div class="research-chart-rows">' + rows.map(row => '<div class="research-chart-row"><div class="research-chart-label"><strong>' + escape(row.label) + '</strong></div><div class="research-bar-track" aria-hidden="true"><div class="research-bar" style="width:' + (row.value / block.max * 100) + '%"></div></div><span class="research-chart-value">' + row.value.toFixed(2) + '</span></div>').join('') + '</div><div class="research-chart-axis" aria-hidden="true"><div>' + block.ticks.map(tick => '<span>' + escape(tick) + '</span>').join('') + '</div></div><p class="research-chart-key">' + rows.map(row => escape(row.label + ' · ' + row.detail)).join(' / ') + '</p><p class="research-chart-note">' + escape(block.note) + '</p></figure>';
+       const key = rows.filter(row => row.detail).map(row => escape(row.label + ' · ' + row.detail)).join(' / ');
+       return '<figure class="research-chart"><figcaption>' + escape(block.caption) + '</figcaption><p class="research-chart-unit">' + escape(block.unit) + '</p><div class="research-chart-rows">' + rows.map(row => '<div class="research-chart-row"><div class="research-chart-label"><strong>' + escape(row.label) + '</strong></div><div class="research-bar-track" aria-hidden="true"><div class="research-bar" style="width:' + (row.value / block.max * 100) + '%"></div></div><span class="research-chart-value">' + row.value.toFixed(block.decimals ?? 2) + '</span></div>').join('') + '</div><div class="research-chart-axis" aria-hidden="true"><div>' + block.ticks.map(tick => '<span>' + escape(tick) + '</span>').join('') + '</div></div>' + (key ? '<p class="research-chart-key">' + key + '</p>' : '') + '<p class="research-chart-note">' + escape(block.note) + '</p></figure>';
      }
      if(block.type === 'image' && block.src) return '<figure><img src="' + escape(url(block.src)) + '" alt="' + escape(block.alt || '') + '" loading="lazy">' + (block.caption ? '<figcaption>' + escape(block.caption) + '</figcaption>' : '') + '</figure>';
      if(block.type === 'link' && block.href){const target = new URL(block.href, url('index.html'));if(!['http:','https:','mailto:'].includes(target.protocol)) return '';return '<p><a href="' + escape(target.href) + '">' + escape(block.label || block.href) + ' ↗</a></p>';}

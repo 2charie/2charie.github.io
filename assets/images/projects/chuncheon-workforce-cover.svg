@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">춘천 기업·재직자 동반 성장 지원제</title>
+  <desc id="desc">학습 기록을 상징하는 펼친 책과 기업의 업무 흐름을 상징하는 도형을 연결한 개념 그래픽</desc>
+  <rect width="1200" height="900" fill="#eeece6"/>
+  <g fill="none" stroke="#dedcd5" stroke-width="2">
+    <circle cx="600" cy="450" r="320"/>
+    <circle cx="600" cy="450" r="270"/>
+    <path d="M120 450h960M600 110v680"/>
+  </g>
+  <g stroke="#252723" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="196" y="310" width="320" height="280" rx="18" fill="#f8f7f3"/>
+    <rect x="684" y="310" width="320" height="280" rx="18" fill="#f8f7f3"/>
+    <path fill="#dfe2d9" d="M263 391c35-8 65-1 93 18 28-19 58-26 93-18v102c-35-8-65-1-93 18-28-19-58-26-93-18z"/>
+    <path fill="none" d="M356 409v102m-70-84c18-2 30 0 46 7m-46 18c18-2 30 0 46 7m48-25c16-7 28-9 46-7m-46 32c16-7 28-9 46-7"/>
+    <path fill="none" d="M516 450h168m-40-22 22 22-22 22M806 450h32m48-32h18a12 12 0 0 1 12 12v8m-30 44h18a12 12 0 0 0 12-12v-8"/>
+    <rect x="756" y="426" width="50" height="48" rx="6" fill="#dfe2d9"/>
+    <rect x="838" y="394" width="48" height="48" rx="6" fill="#eeece6"/>
+    <rect x="838" y="458" width="48" height="48" rx="6" fill="#eeece6"/>
+    <circle cx="916" cy="450" r="12" fill="#526257"/>
+  </g>
+  <circle cx="600" cy="450" r="32" fill="#526257"/>
+  <path d="M588 450h24m-12-12v24" fill="none" stroke="#f8f7f3" stroke-width="4" stroke-linecap="round"/>
+</svg>
