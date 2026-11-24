@@ -2,17 +2,6 @@
   const { escape } = PortfolioUI;
   const won = new Intl.NumberFormat('ko-KR');
 
-  function renderMetrics({ caption, items, source }) {
-    const cards = items.map(({ label, value, detail }) =>
-      '<div><dt>' + escape(label) + '</dt><dd><strong>' + escape(value) + '</strong>' +
-      (detail ? '<p>' + escape(detail) + '</p>' : '') + '</dd></div>'
-    ).join('');
-
-    return '<figure class="policy-metrics"><figcaption>' + escape(caption) + '</figcaption>' +
-      '<dl>' + cards + '</dl>' +
-      (source ? '<p class="research-chart-note">' + escape(source) + '</p>' : '') + '</figure>';
-  }
-
   function renderBudget({ caption, rows, source }) {
     const total = rows.reduce((sum, { amount }) => sum + amount, 0);
     const shares = rows.map(({ amount }) => amount / total * 100);
@@ -31,7 +20,6 @@
   }
 
   function renderBlock(block) {
-    if (block.type === 'policyMetrics') return renderMetrics(block);
     if (block.type === 'policyBudget') return renderBudget(block);
     return null;
   }

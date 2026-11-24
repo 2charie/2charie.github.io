@@ -11,36 +11,6 @@
   padding-inline: 192px 60px;
 }
 
-.policy-metrics dl {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
-  gap: var(--space-3);
-  margin: 0;
-}
-
-.policy-metrics dl > div {
-  background: var(--color-surface);
-  border-radius: var(--radius-card);
-  padding: var(--space-4);
-}
-
-.policy-metrics dt {
-  font-size: var(--text-small);
-  line-height: 1.4;
-}
-
-.policy-metrics dd {
-  margin: var(--space-2) 0 0;
-}
-
-.policy-metrics strong {
-  display: block;
-  font-size: clamp(20px, 3vw, 26px);
-  line-height: 1.25;
-  font-variant-numeric: tabular-nums;
-}
-
-.policy-metrics dd p,
 .policy-budget li p {
   margin: var(--space-2) 0 0;
   font-size: var(--text-small);
