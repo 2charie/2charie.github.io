@@ -9,6 +9,9 @@
  if(project.sections) host.dataset.research = 'true';
  if(project.kind) host.dataset.projectKind = project.kind;
  document.title = project.title + ' — 2charie';
+ const description = document.querySelector('meta[name="description"]');
+ const descriptionText = project.metaDescription || project.summary;
+ if(description && descriptionText) description.content = descriptionText;
  // 문자열 또는 paragraph/image/table/link 블록 배열로 본문을 확장할 수 있습니다.
  const blocks = content => {
    if(!content) return '';
